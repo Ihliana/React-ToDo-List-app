@@ -5,6 +5,7 @@
   align-items: center;
   background-color: #282c34;
   color: #fff;
+  flex-direction: column;
 }
 
 .container {
@@ -56,4 +57,10 @@ button {
 
 .todoText {
   flex: 1;
+}
+
+
+
+footer {
+  text-align: center;
 }
