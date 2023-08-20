@@ -8,15 +8,17 @@ function App() {
         <h1>Todo List App</h1>
 
           <form className="todoForm">
-            <input type='text' />
+            <input type='text' 
+                    placeholder="Add a new task"
+            />
             <button>Add</button>
           </form>
 
           <ul className="todoList">
             <li className="singleTodo">
                 <span  className="todoText">Learn React</span>
-                <button>Edit</button>
-                <button>Delete</button>            
+                <button data-testid="edit-button">Edit</button>
+                <button data-testid='delete-button'>Delete</button>            
             </li>
           </ul>
        </div>
