@@ -22,6 +22,13 @@ function App() {
     setTodo(e.target.value)
   }
 
+
+  const handleDelete = (id) => {
+    const delTodo = todos.filter((todo) => todo.id !== id)
+    setTodos([...delTodo])
+
+  }
+
   return (
     <div className="App">
        <div className="container">
@@ -37,11 +44,11 @@ function App() {
 
           <ul className="todoList">
             {
-              todos.map((todo, idx) => (
-                <li className="singleTodo" key={idx}>
-                    <span  className="todoText">{todo.todo}</span>
+              todos.map((todo) => (
+                <li className="singleTodo" key={todo.id}>
+                    <span  className="todoText" key={todo.id}>{todo.todo}</span>
                     <button data-testid="edit-button">Edit</button>
-                    <button data-testid='delete-button'>Delete</button>            
+                    <button data-testid='delete-button' onClick={() => handleDelete(todo.id)}>Delete</button>            
                 </li>
 
               ))
