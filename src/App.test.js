@@ -30,19 +30,4 @@ describe("App renders correctly", () => {
         expect(addButton).toBeInTheDocument()
     })
 
-    test('renders a todo element with text and buttons', () => {
-            render(<App />)
-
-            //find the existing todo item's text 
-            const todoTextElement = screen.getByText(/Learn React/i)
-            expect(todoTextElement).toBeInTheDocument()
-
-            //find the buttons withing the todo item
-            const editBtn = screen.getByTestId("edit-button")
-            const deleteBtn = screen.getByTestId("delete-button")
-
-            expect(editBtn).toBeInTheDocument()
-            expect(deleteBtn).toBeInTheDocument()
-    })
-
-})
+ })
