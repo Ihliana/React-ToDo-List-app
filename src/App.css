@@ -11,7 +11,7 @@
 .container {
   display: flex;
   height: 80vh;
-  border: 1px solid #f2d414;;
+  border: 3px solid #f2d414;;
   padding: 20px;
   flex-direction: column;
   align-items: center;
@@ -35,7 +35,7 @@ input {
 button {
   border:  none;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 5px;
   margin: 0 5px;
   color: #3b4d61;
 }
@@ -47,7 +47,7 @@ button {
 }
 
 .singleTodo {
-  border-radius: 50px;
+  border-radius: 10px;
   margin: 10px 0;
 
   background-color: #3b4d61;;

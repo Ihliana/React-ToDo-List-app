@@ -7,16 +7,34 @@ function App() {
 
   const [todo, setTodo] = React.useState("")
   const [todos, setTodos] = React.useState([])
+  const [editId, setEditId] = React.useState(0)
 
   //handle form submission
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    //in case of editing
+    if(editId){
+      //define todo we are trying to edit
+      const editTodo = todos.find((i) => i.id === editId)
+
+      const updatedTodos = todos.map((t) => 
+      t.id === editTodo.id 
+      ? (t = {id: t.id, todo}) 
+      : {id: t.id, todo: t.todo} )
+
+      setTodos(updatedTodos)
+      setEditId(0)
+      setTodo("")
+      return;
+    }
 
     //check if the 'todo' input is not empty
     if(todo !== ""){
       //a new todo with a unique ID
       //add the new todo object to the 'todos' array
       setTodos([{id: `${todo}-${Date.now()}`, todo}, ...todos])
+      setTodo("")
     }
 
   }
@@ -38,6 +56,15 @@ function App() {
 
   }
 
+
+  //function to handle todo edit
+  const handleEdit = (id) => {
+      //find out the todo with the given 'id' from the 'todos' array
+      const editTodo = todos.find((i) => i.id === id )
+      setTodo(editTodo.todo)
+      setEditId(id)
+  }
+
   return (
     <div className="App">
        <div className="container">
@@ -49,7 +76,7 @@ function App() {
                     onChange={handleInput}
                     value={todo}
             />
-            <button type='submit'>Add</button>
+            <button type='submit'>{editId ? "Edit" : "Add"}</button>
           </form>
 
           <ul className="todoList">
@@ -57,7 +84,7 @@ function App() {
               todos.map((todo) => (
                 <li className="singleTodo" key={todo.id}>
                     <span  className="todoText" key={todo.id}>{todo.todo}</span>
-                    <button data-testid="edit-button">Edit</button>
+                    <button data-testid="edit-button" onClick={() => handleEdit(todo.id)}>Edit</button>
                     <button data-testid='delete-button' onClick={() => handleDelete(todo.id)}>Delete</button>            
                 </li>
 
