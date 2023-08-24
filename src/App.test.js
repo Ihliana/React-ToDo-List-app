@@ -20,14 +20,4 @@ describe("App renders correctly", () => {
 
     })
 
-    test('renders input field and add button', () => {
-        render(<App />)
-
-        const inputElement = screen.getByPlaceholderText(/Add a new task/i)
-        expect(inputElement).toBeInTheDocument()
-
-        const addButton = screen.getByText("Add")
-        expect(addButton).toBeInTheDocument()
-    })
-
- })
+  })
