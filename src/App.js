@@ -1,6 +1,7 @@
 import React from "react"
 import './App.css';
 
+import TodoForm from "./components/TodoForm";
 import Footer from './components/footer'
 
 function App() {
@@ -70,14 +71,14 @@ function App() {
        <div className="container">
         <h1>Todo List App</h1>
 
-          <form className="todoForm" onSubmit={handleSubmit}>
-            <input type='text' 
-                    placeholder="Add a new task"
-                    onChange={handleInput}
-                    value={todo}
-            />
-            <button type='submit'>{editId ? "Edit" : "Add"}</button>
-          </form>
+        <TodoForm 
+                handleSubmit={handleSubmit}
+                todo={todo}
+                editId={editId}
+                handleInput={handleInput}
+
+        />
+      
 
           <ul className="todoList">
             {
