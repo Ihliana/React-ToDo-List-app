@@ -6,11 +6,18 @@ function TodoList({todos, handleDelete, handleEdit}){
 
         <ul className="todoList">
         {
+            /* Map through each todo item in the 'todos' array */
           todos.map((todo) => (
             <li className="singleTodo" key={todo.id}>
+
+                    {/* Display the todo text */}
                 <span  className="todoText" key={todo.id}>{todo.todo}</span>
-                <button data-testid="edit-button" onClick={() => handleEdit(todo.id)}>Edit</button>
-                <button data-testid='delete-button' onClick={() => handleDelete(todo.id)}>Delete</button>            
+
+                    {/* Edit button */}
+                <button data-testid={`edit-button-${todo.id}`} onClick={() => handleEdit(todo.id)}>Edit</button>
+
+                    {/*Delete button */}
+                <button data-testid={`delete-button-${todo.id}`} onClick={() => handleDelete(todo.id)}>Delete</button>            
             </li>
 
           ))
