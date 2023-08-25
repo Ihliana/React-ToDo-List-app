@@ -2,6 +2,7 @@ import React from "react"
 import './App.css';
 
 import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
 import Footer from './components/footer'
 
 function App() {
@@ -79,19 +80,12 @@ function App() {
 
         />
       
-
-          <ul className="todoList">
-            {
-              todos.map((todo) => (
-                <li className="singleTodo" key={todo.id}>
-                    <span  className="todoText" key={todo.id}>{todo.todo}</span>
-                    <button data-testid="edit-button" onClick={() => handleEdit(todo.id)}>Edit</button>
-                    <button data-testid='delete-button' onClick={() => handleDelete(todo.id)}>Delete</button>            
-                </li>
-
-              ))
-            }
-          </ul>
+        <TodoList 
+                todos={todos}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+        />
+      
        </div>
 
        <Footer  />
