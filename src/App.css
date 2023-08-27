@@ -8,6 +8,11 @@
   flex-direction: column;
 }
 
+
+.App.dark {
+  background-color: #21222a;
+}
+
 .container {
   display: flex;
   height: 80vh;
@@ -19,6 +24,81 @@
 
 }
 
+/* nav styles */
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 60px;
+  padding: 30px 25px;
+  width: 100%;
+  z-index: 1;
+}
+
+
+.nav--text {
+  margin-right: auto;
+}
+.toggler {
+  display: flex;
+  align-items: center;
+}
+
+.toggler--slider {
+  width: 1.8rem;
+  height: 1em;
+  background-color: #2b283a;
+  border-radius: 2rem;
+  margin-inline: 7px;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid black;
+  box-sizing: content-box;
+}
+
+nav.dark .toggler--slider {
+  border-color: #fff;
+  background-color: #f5f5f5;
+}
+
+.toggler--slider--circle {
+  height: 1em;
+  width: 1em;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+nav.dark .toggler--slider--circle {
+  background-color: #000;
+}
+
+.toggler-light {
+  color: #2b283a;
+}
+
+nav.dark .toggler-light {
+  color: #918e9b;
+}
+
+.toggler-dark {
+  color: #d5d4d8;
+}
+
+nav.dark .toggler-dark {
+  color: #fff;
+}
+
+nav.dark .toggler--slider {
+  justify-content: flex-end;
+}
+
+
+
+/* TodoForm */
 .todoForm {
   display: flex;
   justify-self: space-around;
@@ -62,6 +142,8 @@ button {
 }
 
 
+
+/* Footer **/
 
 footer {
   text-align: center;

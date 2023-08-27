@@ -1,6 +1,7 @@
 import React from "react"
 import './App.css';
 
+import Navbar from "./components/Navbar";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 import Footer from './components/footer'
@@ -10,6 +11,13 @@ function App() {
   const [todo, setTodo] = React.useState("")
   const [todos, setTodos] = React.useState([])
   const [editId, setEditId] = React.useState(0)
+
+  const [darkMode, setDarkMode] = React.useState(true)
+
+  //handle mode
+  function toggleDarkMode() {
+    setDarkMode(prevMode => !prevMode)
+  }
 
   //handle form submission
   const handleSubmit = (e) => {
@@ -68,15 +76,20 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className={`App ${darkMode ? 'dark': ""}`}>
        <div className="container">
-        <h1>Todo List App</h1>
+        
+        <Navbar darkMode={darkMode} 
+                toggleDarkMode={toggleDarkMode}
+        />
+
 
         <TodoForm 
                 handleSubmit={handleSubmit}
                 todo={todo}
                 editId={editId}
                 handleInput={handleInput}
+             
 
         />
       
