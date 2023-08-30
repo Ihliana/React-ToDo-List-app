@@ -1,7 +1,7 @@
 import React from "react"
 //This component represents a form used for adding or editing a todo item
 
-const TodoForm = ({handleSubmit, todo, editId, handleInput}) => {
+const TodoForm = ({handleSubmit, todo, editId, handleInput, darkMode}) => {
     return(
 
         //A form element 
@@ -15,7 +15,7 @@ const TodoForm = ({handleSubmit, todo, editId, handleInput}) => {
             />
 
             {/* A submit button with dynamic text based on whether an edit is in progress */}
-            <button type='submit'>{editId ? "Edit" : "Add"}</button>
+            <button className={`submit-button ${darkMode ? 'dark': ""}`} type='submit'>{editId ? "Edit" : "Add"}</button>
       </form>
     )
 }

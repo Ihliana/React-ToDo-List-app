@@ -1,27 +1,42 @@
+:root {
+  --primary-color: #008080; /* Teal */
+  --secondary-color: #ffbf00; /* Amber */
+  --ternary-color: #708090; /* Slate Gray */
+
+  --red-color: #e74c3c;
+}
+
+
 .App {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #6b7b8c;
-  color: #f2d414;
   flex-direction: column;
+
+  background-color:var(--primary-color); /* Teal background color */
+  color: var(--secondary-color) /* Teal text color */
 }
 
 
 .App.dark {
-  background-color: #21222a;
+ background-color: var(--secondary-color); /* Amber background color */;
+ color: var(--primary-color);
 }
 
 .container {
   display: flex;
   height: 80vh;
-  border: 3px solid #f2d414;;
+  border: 3px solid var(--secondary-color);
   padding: 20px;
   flex-direction: column;
   align-items: center;
   font-size: 1.25rem;
 
+}
+
+.container.dark {
+  border: 3px solid var(--primary-color);
 }
 
 /* nav styles */
@@ -114,11 +129,24 @@ input {
 
 button {
   border:  none;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 6px 12px;
+  border-radius: 8px;
   margin: 0 5px;
   color: #3b4d61;
 }
+
+
+.submit-button:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.submit-button.dark:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+  }
+
+
 
 .todoList {
   list-style-type: none;
@@ -129,17 +157,41 @@ button {
 .singleTodo {
   border-radius: 10px;
   margin: 10px 0;
-
-  background-color: #3b4d61;;
+  
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   padding: 10px 20px;
   display: flex;
   width: 450px;
   align-items: center;
 }
 
+.singleTodo.dark {
+  
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
 .todoText {
   flex: 1;
+  font-weight: 700;
 }
+
+.delete-button:hover {
+  background-color: var(--red-color); /* Red color for delete */
+  color: var(--secondary-color);
+}
+
+.edit-button:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+.edit-button.dark:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+
 
 
 

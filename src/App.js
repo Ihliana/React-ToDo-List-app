@@ -12,7 +12,7 @@ function App() {
   const [todos, setTodos] = React.useState([])
   const [editId, setEditId] = React.useState(0)
 
-  const [darkMode, setDarkMode] = React.useState(true)
+  const [darkMode, setDarkMode] = React.useState(false)
 
   //handle mode
   function toggleDarkMode() {
@@ -77,7 +77,7 @@ function App() {
 
   return (
     <div className={`App ${darkMode ? 'dark': ""}`}>
-       <div className="container">
+       <div className={`container ${darkMode ? 'dark': ""}`}>
         
         <Navbar darkMode={darkMode} 
                 toggleDarkMode={toggleDarkMode}
@@ -89,7 +89,7 @@ function App() {
                 todo={todo}
                 editId={editId}
                 handleInput={handleInput}
-             
+                darkMode={darkMode}     
 
         />
       
@@ -97,6 +97,7 @@ function App() {
                 todos={todos}
                 handleDelete={handleDelete}
                 handleEdit={handleEdit}
+                darkMode={darkMode}
         />
       
        </div>
