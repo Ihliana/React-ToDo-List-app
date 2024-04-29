@@ -1,31 +1,55 @@
-import React from "react"
+import React from "react";
 
+function TodoList({ todos, handleDelete, handleEdit, darkMode }) {
+  const [isDone, setIsDone] = React.useState(false);
 
-function TodoList({todos, handleDelete, handleEdit, darkMode}){
-    return(
+  function flippState() {
+    setIsDone((prevState) => !prevState);
+  }
 
-        <ul className="todoList">
-        {
-            /* Map through each todo item in the 'todos' array */
-          todos.map((todo) => (
-            <li className={`singleTodo ${darkMode ? 'dark': ""}`} key={todo.id}>
+  const doneStyles = {
+    backgroundColor: isDone ? "green" : "orange",
+    color: isDone ? "white" : "red",
+    textDecoration: isDone ? "line-through" : "",
+  };
 
-                    {/* Display the todo text */}
-                <span  className="todoText" key={todo.id}>{todo.todo}</span>
+  return (
+    <ul className="todoList">
+      {
+        /* Map through each todo item in the 'todos' array */
+        todos.map((todo) => (
+          <li className={`singleTodo ${darkMode ? "dark" : ""}`} key={todo.id}>
+            {/* Display the todo text */}
+            <span className="todoText" key={todo.id}>
+              {todo.todo}
+            </span>
 
-                    {/* Edit button */}
-                <button data-testid={`edit-button-${todo.id}`} className={`edit-button ${darkMode ? 'dark': ""}`} onClick={() => handleEdit(todo.id)}>Edit</button>
+            <button style={doneStyles} onClick={flippState}>
+              {isDone ? "Done" : "ready?"}
+            </button>
 
-                    {/*Delete button */}
-                <button data-testid={`delete-button-${todo.id}`} className="delete-button" onClick={() => handleDelete(todo.id)}>Delete</button>            
-            </li>
+            {/* Edit button */}
+            <button
+              data-testid={`edit-button-${todo.id}`}
+              className={`edit-button ${darkMode ? "dark" : ""}`}
+              onClick={() => handleEdit(todo.id)}
+            >
+              Edit
+            </button>
 
-          ))
-        }
-      </ul>
-
-    )
+            {/*Delete button */}
+            <button
+              data-testid={`delete-button-${todo.id}`}
+              className="delete-button"
+              onClick={() => handleDelete(todo.id)}
+            >
+              Delete
+            </button>
+          </li>
+        ))
+      }
+    </ul>
+  );
 }
 
-
-export default TodoList
+export default TodoList;
